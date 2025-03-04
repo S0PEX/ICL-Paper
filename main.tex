@@ -15,18 +15,18 @@
 \usepackage{booktabs}
 \usepackage{listings}
 
-% Bibliography
-\usepackage[
-    backend=biber,
-    sorting=none
-]{biblatex}
-\addbibresource{bibliogaphy.bib}
-
-% 
+% Acronyms
 \usepackage{acro}
 \input{acronyms}
 
-% Cover Parameters 
+% Bibliography
+\usepackage[
+  backend=biber,
+  sorting=none
+]{biblatex}
+\addbibresource{bibliogaphy.bib}
+
+% Cover Parameters
 \title{Evaluating In-Context Learning for Lateral Thinking: Testing Open Large Language Models on the SemEval 2024 BRAINTEASER Task}
 
 \newcommand{\thesistype}{Seminar Paper}
@@ -45,7 +45,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-\input{content/0_abstract}
+  \input{content/0_abstract}
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,7 +60,7 @@
 %\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% MAIN PART                                               %% 
+%% MAIN PART                                               %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \input{content/1_introduction}
@@ -75,7 +75,7 @@
 \input{content/4_conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                      BIBLIOGRAPHY                      %% 
+%%                      BIBLIOGRAPHY                      %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \printbibliography

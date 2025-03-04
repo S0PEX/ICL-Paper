@@ -1,0 +1,5 @@
+{
+  "latex-workshop.formatting.latex": "tex-fmt",
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize"
+}
