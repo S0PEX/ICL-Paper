@@ -78,20 +78,21 @@
   abstract     = {Question answering, serving as one of important tasks in natural language processing, enables machines to understand questions in natural language and answer the questions concisely. From web search to expert systems, question answering systems are widely applied to various domains in assisting information seeking. Deep learning methods have boosted various tasks of question answering and have demonstrated dramatic effects in performance improvement for essential steps of question answering. Thus, leveraging deep learning methods for question answering has drawn much attention from both academia and industry in recent years. This paper provides a systematic review of the recent development of deep learning methods for question answering. The survey covers the scope including methods, datasets, and applications. The methods are discussed in terms of network structure characteristics, methodology innovations, and their effectiveness. The survey is expected to be a contribution to the summarization of recent research progress and future directions of deep learning methods for question answering.}
 }
 
-@inproceedings{huangLatEvalInteractiveLLMs2024,
-  title      = {{{LatEval}}: {{An Interactive LLMs Evaluation Benchmark}} with {{Incomplete Information}} from {{Lateral Thinking Puzzles}}},
-  shorttitle = {{{LatEval}}},
-  booktitle  = {Proceedings of the 2024 {{Joint International Conference}} on {{Computational Linguistics}}, {{Language Resources}} and {{Evaluation}} ({{LREC-COLING}} 2024)},
-  author     = {Huang, Shulin and Ma, Shirong and Li, Yinghui and Huang, Mengzuo and Zou, Wuhe and Zhang, Weidong and Zheng, Haitao},
-  editor     = {Calzolari, Nicoletta and Kan, Min-Yen and Hoste, Veronique and Lenci, Alessandro and Sakti, Sakriani and Xue, Nianwen},
-  date       = {2024-05},
-  pages      = {10186--10197},
-  publisher  = {{ELRA and ICCL}},
-  location   = {Torino, Italia},
-  url        = {https://aclanthology.org/2024.lrec-main.889/},
-  urldate    = {2025-03-04},
-  abstract   = {With the evolution of LLMs, they are endowed with impressive logical reasoning, or vertical thinking capabilities. But can they think out of the box? Do they possess proficient lateral thinking abilities? Following the setup of Lateral Thinking Puzzles, we propose a novel evaluation benchmark, LatEval, which assesses the model`s lateral thinking within an interactive framework. In our benchmark, we challenge LLMs with 2 aspects: (1) posing high-quality questions that break out of conventional norms but are beneficial for puzzle-solving. (2) integrating existing information to gradually deduce the truth through reasoning. We observe that it is hard for most LLMs to accomplish lateral thinking during interactions. Even the most powerful LLM, GPT-4, faces challenges in achieving satisfactory performance, and for most open-source models, simply completing this task is quite difficult. This evaluation benchmark provides LLMs with a highly challenging and differentiating task that is crucial to an effective AI assistant. Our dataset and source codes are available at https://github.com/THUKElab/LatEval.},
-  eventtitle = {{{LREC-COLING}} 2024}
+@online{huangLatEvalInteractiveLLMs2024,
+  title       = {{{LatEval}}: {{An Interactive LLMs Evaluation Benchmark}} with {{Incomplete Information}} from {{Lateral Thinking Puzzles}}},
+  shorttitle  = {{{LatEval}}},
+  author      = {Huang, Shulin and Ma, Shirong and Li, Yinghui and Huang, Mengzuo and Zou, Wuhe and Zhang, Weidong and Zheng, Hai-Tao},
+  date        = {2024-03-17},
+  eprint      = {2308.10855},
+  eprinttype  = {arXiv},
+  eprintclass = {cs},
+  doi         = {10.48550/arXiv.2308.10855},
+  url         = {http://arxiv.org/abs/2308.10855},
+  urldate     = {2025-03-04},
+  abstract    = {With the continuous evolution and refinement of LLMs, they are endowed with impressive logical reasoning or vertical thinking capabilities. But can they think out of the box? Do they possess proficient lateral thinking abilities? Following the setup of Lateral Thinking Puzzles, we propose a novel evaluation benchmark, LatEval, which assesses the model's lateral thinking within an interactive framework. In our benchmark, we challenge LLMs with 2 aspects: the quality of questions posed by the model and the model's capability to integrate information for problem-solving. We find that nearly all LLMs struggle with employing lateral thinking during interactions. For example, even the most advanced model, GPT-4, exhibits the advantage to some extent, yet still maintain a noticeable gap when compared to human. This evaluation benchmark provides LLMs with a highly challenging and distinctive task that is crucial to an effective AI assistant.},
+  pubstate    = {prepublished},
+  keywords    = {Computer Science - Computation and Language},
+  note        = {Comment: Accepted by LREC-COLING 2024}
 }
 
 @online{jiangBRAINTEASERLateralThinking2023,
@@ -126,6 +127,23 @@
   urldate    = {2025-03-02},
   abstract   = {Large Language Models (LLMs) have demonstrated impressive performance on many Natural Language Processing (NLP) tasks. However, their ability to solve more creative, lateral thinking puzzles remains relatively unexplored. In this work, we develop methods to enhance the lateral thinking and puzzle-solving capabilities of LLMs. We curate a dataset of word-type and sentence-type brain teasers requiring creative problem-solving abilities beyond commonsense reasoning. We first evaluate the zero-shot performance of models like GPT-3.5 and GPT-4 on this dataset. To improve their puzzle-solving skills, we employ prompting techniques like providing reasoning clues and chaining multiple examples to demonstrate the desired thinking process. We also fine-tune the state-of-the-art Mixtral 7x8b LLM on ourdataset. Our methods enable the models to achieve strong results, securing 2nd and 3rd places in the brain teaser task. Our work highlights the potential of LLMs in acquiring complex reasoning abilities with the appropriate training. The efficacy of our approaches opens up new research avenues into advancing lateral thinking and creative problem-solving with AI systems.},
   eventtitle = {{{SemEval}} 2024}
+}
+
+@online{linRiddleSenseReasoningRiddle2021,
+  title       = {{{RiddleSense}}: {{Reasoning}} about {{Riddle Questions Featuring Linguistic Creativity}} and {{Commonsense Knowledge}}},
+  shorttitle  = {{{RiddleSense}}},
+  author      = {Lin, Bill Yuchen and Wu, Ziyi and Yang, Yichi and Lee, Dong-Ho and Ren, Xiang},
+  date        = {2021-07-04},
+  eprint      = {2101.00376},
+  eprinttype  = {arXiv},
+  eprintclass = {cs},
+  doi         = {10.48550/arXiv.2101.00376},
+  url         = {http://arxiv.org/abs/2101.00376},
+  urldate     = {2025-03-04},
+  abstract    = {Question: I have five fingers but I am not alive. What am I? Answer: a glove. Answering such a riddle-style question is a challenging cognitive process, in that it requires complex commonsense reasoning abilities, an understanding of figurative language, and counterfactual reasoning skills, which are all important abilities for advanced natural language understanding (NLU). However, there are currently no dedicated datasets aiming to test these abilities. Herein, we present RiddleSense, a new multiple-choice question answering task, which comes with the first large dataset (5.7k examples) for answering riddle-style commonsense questions. We systematically evaluate a wide range of models over the challenge, and point out that there is a large gap between the best-supervised model and human performance -- suggesting intriguing future research in the direction of higher-order commonsense reasoning and linguistic creativity towards building advanced NLU systems.},
+  pubstate    = {prepublished},
+  keywords    = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
+  note        = {Comment: Accepted to ACL 2021 (Findings). Project page: https://inklab.usc.edu/RiddleSense}
 }
 
 @online{naveedComprehensiveOverviewLarge2024,

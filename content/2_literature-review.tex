@@ -1,0 +1,29 @@
+Assessing the lateral thinking capabilities of \acp{LLM} is essential for enhancing their creative problem-solving skills. This evaluation provides insights into how effectively these models can engage in unconventional reasoning, a hallmark of human-like thought. To facilitate this, various specialized benchmarks and evaluation frameworks have been developed, each employing distinct methods and puzzles to challenge the lateral reasoning abilities of \acp{LLM}.
+
+\subsection{RiddleSense: A Benchmark for Riddle Solving}
+
+\citetitle{linRiddleSenseReasoningRiddle2021} by \textcite{linRiddleSenseReasoningRiddle2021} serves as a benchmark designed to evaluate the efficacy of \acp{LLM} in resolving riddles that necessitate creative and lateral thinking. It encompasses a multiple-choice dataset comprising 5,700 riddle-style commonsense questions, each supplemented with human-annotated explanations that elucidate the reasoning underpinning the solutions~\cite{linRiddleSenseReasoningRiddle2021}.
+
+For instance, consider the riddle: \textit{"I have five fingers but I am not alive. What am I?"} The accurate response is \textit{"a glove"}. The resolution of such riddles demands commonsense reasoning, comprehension of figurative language, and counterfactual reasoning—skills that are indispensable for the advancement of \ac{NLU}~\cite{linRiddleSenseReasoningRiddle2021}.
+
+This benchmark highlights the challenges involved in solving riddles that require creative thinking and commonsense knowledge, underscoring the need for further development in \ac{NLU} systems capable of handling such complex cognitive tasks.
+
+\subsection{LatEval: An Interactive Evaluation Framework}
+
+\textcite{huangLatEvalInteractiveLLMs2024} introduces \citetitle{huangLatEvalInteractiveLLMs2024}, an interactive framework designed to evaluate \acp{LLM}'s lateral thinking abilities through lateral thinking puzzles. This evaluation emphasizes the model's capacity to generate insightful, unconventional questions that deepen engagement with puzzle scenarios and its proficiency in synthesizing incomplete or ambiguous information to derive creative solutions. LatEval highlights the dynamic nature of lateral thinking by simulating a problem-solving environment where models actively interact with evolving information.
+
+\subsection{BRAINTEASER Benchmark}
+
+The \citetitle{jiangBRAINTEASERLateralThinking2023} Benchmark by \textcite{jiangBRAINTEASERLateralThinking2023} evaluates the lateral thinking abilities of \acp{LLM} through puzzles that challenge common-sense reasoning. It features two main puzzle types: Sentence Puzzles; scenarios with outcomes that defy expectations, requiring unconventional reasoning. Word Puzzles; tasks involving creative manipulation of word meanings and structures.
+
+The benchmark employs two accuracy metrics: Standard Accuracy; measures the percentage of puzzles answered correctly. Consistency-Adjusted Accuracy; assesses the consistency of responses across adversarial formats, providing a robust evaluation of lateral thinking capabilities.
+
+These metrics offer a comprehensive assessment of an \ac{LLM}'s ability to handle lateral thinking tasks, highlighting both its problem-solving skills and the reliability of its reasoning processes.
+
+\subsection{Weak-eval-Strong: Evaluating and Eliciting Lateral Thinking}
+
+The \citetitle{haoRecentProgressLeveraging2022} framework by \textcite{haoRecentProgressLeveraging2022} utilizes situation puzzles to evaluate and enhance the lateral thinking abilities of LLMs. This framework presents scenarios that require creative and indirect reasoning to uncover underlying explanations, encompassing 975 graded situation puzzles across three difficulty levels: easy, which involves simple scenarios requiring straightforward lateral reasoning; medium, which includes moderately complex situations necessitating more nuanced thinking; and hard, which consists of complex scenarios demanding advanced lateral thinking and problem-solving skills. Additionally, the framework employs a player-judge system, wherein the LLM (player) interacts with an evaluation model (judge) through a series of questions and answers, closely mimicking human problem-solving interactions. This approach not only evaluates existing lateral thinking capabilities but also actively elicits and enhances these skills through interactive engagement.
+
+\subsection{Conclusion}
+
+In recent years, various benchmarks have been introduced to evaluate and enhance the lateral thinking capabilities of \acp{LLM}. These benchmarks focus on assessing the models' proficiency in generating unconventional questions, synthesizing incomplete or ambiguous information, and applying creative reasoning to solve complex puzzles. Despite significant progress, challenges persist in fully capturing the dynamic and interactive nature of human lateral thinking. Ongoing research endeavors to address these challenges, aiming to develop more advanced \acp{LLM} capable of nuanced and creative problem-solving.
