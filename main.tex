@@ -1,0 +1,76 @@
+\documentclass{scrartcl}
+
+% Language setting
+\usepackage[english]{babel}
+
+% Set page size and margins
+\usepackage[a4paper,left=2.5cm,right=2cm,top=2cm,bottom=2cm,]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% Bibliography
+%\usepackage[backend=biber, sorting=none]{biblatex}
+%\addbibresource{bibliogaphy}
+
+% 
+\usepackage{acro}
+\input{acronyms}
+
+% Cover Parameters 
+\title{Evaluating In-Context Learning for Lateral Thinking: Testing Open Large Language Models on the SemEval 2024 BRAINTEASER Task}
+
+\newcommand{\thesistype}{Seminar Paper}
+\newcommand{\thesisauthor}{Artur Komaristych}
+\newcommand{\studentID}{7415421}
+\newcommand{\supervisor}{Prof. Dr. Nils Reiter}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COVER                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{assets/uzk/title-cover}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ABSTRACT                                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+\include{content/0_abstract}
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TOC,TOF,TOT                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\clearpage
+%\tableofcontents
+%\clearpage
+%\listoffigures
+%\clearpage
+%\listoftables
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MAIN PART                                               %% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\input{content/1_introduction}
+
+\section{Literature Review}
+\input{content/2_literature-review}
+
+\section{Report}
+\input{content/3_report}
+
+\section{Conclusion}
+\input{content/4_conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                      BIBLIOGRAPHY                      %% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{alpha}
+\bibliography{bibliogaphy}
+
+\end{document}
