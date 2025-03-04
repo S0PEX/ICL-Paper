@@ -10,10 +10,14 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{csquotes}
 
 % Bibliography
-%\usepackage[backend=biber, sorting=none]{biblatex}
-%\addbibresource{bibliogaphy}
+\usepackage[
+    backend=biber,
+    sorting=none
+]{biblatex}
+\addbibresource{bibliogaphy.bib}
 
 % 
 \usepackage{acro}
@@ -38,7 +42,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-\include{content/0_abstract}
+\input{content/0_abstract}
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,7 +74,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                      BIBLIOGRAPHY                      %% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{alpha}
-\bibliography{bibliogaphy}
+\clearpage
+\printbibliography
 
 \end{document}
