@@ -1,6 +1,7 @@
 {
   "editor.tabSize": 2,
   "editor.indentSize": "tabSize",
+  "editor.wordWrap": "on",
   "editor.formatOnSave": true,
   "latex-workshop.formatting.latex": "tex-fmt",
   "latex-workshop.latex.outDir": ".aux",
