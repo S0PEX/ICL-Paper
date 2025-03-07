@@ -15,6 +15,7 @@
 \usepackage{booktabs}
 \usepackage{listings}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
 % Acronyms
 \usepackage{acro}
 \input{acronyms}
@@ -28,7 +29,8 @@
 \addbibresource{bibliogaphy.bib}
 
 % Custom citation commands
-\newcommand{\citetitler}[1]{\citetitle{#1}~\cite{#1}}
+\newcommand{\citewithtitle}[1]{\citetitle{#1}~\cite{#1}}
+\newcommand{\hreffootnote}[2]{\href{#1}{#2}\footnote{\href{#1}{#1}}}
 
 % Cover Parameters
 \title{Evaluating In-Context Learning for Lateral Thinking: Testing Open Large Language Models on the SemEval 2024 BRAINTEASER Task}
@@ -70,7 +72,7 @@
 \input{content/1_introduction}
 
 \section{Literature Review}
-\input{content/2_literature-review}
+% \input{content/2_literature-review}
 
 \section{Report}
 \input{content/3_report}
