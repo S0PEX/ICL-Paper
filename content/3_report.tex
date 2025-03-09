@@ -22,30 +22,21 @@ Each metric is reported for both raw and processed model responses. A \textit{ra
 
 \subsection{Experiments}
 
-In all experiments, an enhanced version of the prompt used by \textcite{jiangBRAINTEASERLateralThinking2023} was employed. Specifically, the word \textit{brain teaser} was replaced with \textit{question}. Additionally, the option \textit{"none of the above"} was enclosed in quotes to ensure the model recognizes it as a selectable choice rather than an alternative option.
-
-% \begin{lstlisting}[xleftmargin=0pt, breaklines=true]
-% Please select the best answer for the question. Each question has only one correct answer, including the choice 'None of above'. Your answer should only include the choice:
-
-% Question: {question}
-% Choice:
-% (A) {choice_A}
-% (B) {choice_B}
-% (C) {choice_C}
-% (D) None of the above
-% Answer:
-% \end{lstlisting}
+In all experiments, an enhanced version of the prompt used by \textcite{jiangBRAINTEASERLateralThinking2023} was employed. Specifically, the word \textit{brain teaser} was replaced with \textit{question} to align with standard terminology. Additionally, the option \textit{"none of the above"} was enclosed in quotes to ensure the model recognizes it as a selectable choice rather than an alternative option.
 
 \paragraph{Zero-Shot Baseline.}
-In this experiment, each \ac{LLM} was provided with the default system prompt: \textit{"You are a helpful AI assistant"}. The system prompt serves as an introductory message to guide the behavior of the model. It sets the context for how the model should approach the task and what type of responses are expected. No additional instructions or examples were provided to the model, making this a true zero-shot setting where the model had to rely solely on its pre-trained knowledge to generate answers.
+\label{zero-shot-prompt}
+Each \ac{LLM} was evaluated in a zero-shot setting using the default system prompt: \textit{"You are a helpful AI assistant."} This system prompt provides a general instruction for the model's behavior without introducing task-specific details. No additional instructions or examples were included, requiring the model to rely solely on its pre-trained knowledge when generating answers.
 
 \paragraph{Zero-Shot with Prompt Engineering.}
-In this experiment, the same system prompt as the Zero-Shot Baseline was used, with the addition of an instruction for the models to \textit{"\{...\} think step by step \{...\}"} before responding. This technique, a form of prompt engineering, encourages models to break down their reasoning process, potentially leading to more detailed and accurate answers~\cite{weiChainofThoughtPromptingElicits2023}. Other variations of this instruction were also explored, such as prompting the models with \textit{"You are \{...\}. Think step by step to consider hidden meanings and metaphorical interpretations \{...\}"} or \textit{"\{...\} approach each brain teaser from multiple perspectives \{...\}."} These variations were designed to foster creative and multi-faceted reasoning.
+\label{zero-shot-prompt-engineering}
+Building upon the \nameref{zero-shot-prompt} experiment, this experiment introduced prompt engineering techniques designed to enhance reasoning. The system prompt was modified to include additional instructions encouraging lateral thinking. For example, the system prompt was extended with phrases such as \textit{"\{...\} think step by step \{...\}"} to promote structured reasoning. Alternative variations included instructions like \textit{"You are \{...\}. Think step by step to consider hidden meanings and metaphorical interpretations \{...\}"} or \textit{"\{...\} approach each question from multiple perspectives \{...\}"}. These refinements aimed to improve interpretability and accuracy by guiding the model's cognitive process. Each system prompt variation was initially tested on a small 10\% random sample set, as running all variations on the complete dataset was infeasible. The results of the small experiment were then used to obtain the best system prompt ($s_i$) for each model ($m_i$). Then, each model $m_i$ was prompted with $s_i$ on the complete dataset.
 
 \paragraph{Few-Shot.}
-For the Few-Shot experiment, the dataset was divided into an evaluation set and a selection pool of examples. Instead of injecting the examples directly into the prompt, the model's API was accessed directly. Each example was provided as user input, followed by the model's answer, which included the correct choice letter. This exchange was then incorporated into the chat history, effectively providing the model with context and helping it learn from the provided examples. This method was chosen because it follows the suggested format by LangChain for effective few-shot learning. The selection of examples was randomized to ensure diversity in answers and prevent the model from learning biases towards a particular answer choice (e.g., always selecting answer "A"). This approach allowed the model to generalize better from a limited number of examples.
+\label{few-shot-prompt}
+In this experiment, a subset of the dataset was allocated for $n$-few-shot prompting. In few-shot prompting, a small number of examples are provided within the prompt to guide the model's responses~\cite{brownLanguageModelsAre2020}. Adopting a conversational approach suitable for chat-based models, examples were presented as a chat history to the model. Each example consisted of a user query paired with the corresponding model answer. This methodology aligns with best practices for few-shot prompting in chat models, as outlined by \hreffootnote{https://python.langchain.com/docs/how\_to/few\_shot\_examples\_chat/}{LangChain}~\cite{HowUseFew}. To mitigate biases, such as the model favoring a particular answer choice like "A" due to its overall frequency in the prepended examples, examples were randomly selected while ensuring diversity in the answer label as long as possible. The best number of examples ($n_i$) to provide to a model ($m_i$) was initially tested on a small 10\% random sample set, as running all $n \in [1, 10]$ on the complete dataset was infeasible. The results of the small experiment were then used to obtain a unique $n_i$ for each model. Then, each model $m_i$ was prompted with $n_i$ examples on the complete dataset.
 
 \paragraph{Few-Shot with Prompt Engineering.}
-In this experiment, the Few-Shot approach was combined with the same prompt engineering techniques as the Zero-Shot with Prompt Engineering experiment. The system prompt was aligned with those used previously, encouraging the models to "think step by step" and consider various formulations. As in the few-shot experiment, each example was injected into the model's chat history as user input followed by the correct answer choice, ensuring that the model had access to a small set of labeled examples while also benefiting from the structured reasoning approach. This setup aimed to combine the benefits of both few-shot learning and prompt engineering to improve the model’s accuracy and consistency.
+This experiment combined few-shot learning with the prompt engineering techniques introduced in \nameref{zero-shot-prompt-engineering}. The system prompt was extended with instructions encouraging step-by-step analysis. As in the previous \nameref{few-shot-prompt} experiment, examples were presented in a conversational format, integrating both user queries and correct responses before the user query. Each model ($m_i$) was prompted with the best number of examples ($n_i$) and the best system prompt ($s_i$) obtained from the zero-shot experiments.
 
 \subsection{Evaluation and Results}
