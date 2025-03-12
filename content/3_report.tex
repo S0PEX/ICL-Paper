@@ -23,7 +23,7 @@ Metrics are reported for both \textit{raw} and \textit{processed} model response
 
 \subsection{Experiments}
 
-In all experiments, an enhanced version of the prompt from \textcite{jiangBRAINTEASERLateralThinking2023} was used. Specifically, the term \textit{brain teaser} was replaced with \textit{question} to align with standard terminology, and the option \textit{"none of the above"} was enclosed in quotes to ensure the model recognizes it as a selectable choice.
+In all experiments, an enhanced version of the prompt from \textcite{jiangBRAINTEASERLateralThinking2023} was used. Specifically, the term \textit{"brain teaser"} was replaced with \textit{"question"} to align with standard terminology, and the option \textit{"none of the above"} was enclosed in quotes to ensure the model recognizes it as a selectable choice.
 
 \paragraph{Zero-Shot Baseline.}
 \label{zero-shot-prompt}
@@ -31,19 +31,19 @@ Each \ac{LLM} is evaluated in a zero-shot setting using the default system promp
 
 \paragraph{Zero-Shot with Prompt Engineering.}
 \label{zero-shot-prompt-engineering}
-Building on the \nameref{zero-shot-prompt} experiment, 13 different system prompts are tested, each designed to encourage lateral thinking. These prompts include instructions such as \textit{"You are {...}. Think step by step {...}"} or \textit{"{...} consider hidden meanings and metaphorical interpretations {...}"}. Each system prompt ($s_i$) is applied to every model ($m_i$) on a 10\% random split of the dataset. The best-performing prompt for each model is then selected. This system prompt is prefixed to the user prompt, and the model is evaluated on the complete dataset.
+Building on the \nameref{zero-shot-prompt} experiment, 13 different system prompts are tested, each designed to encourage lateral thinking. These prompts include instructions such as \textit{"You are \{...\}. Think step by step \{...\}"} or \textit{"\{...\} consider hidden meanings and metaphorical interpretations {...}"}. Each system prompt ($s_i$) is applied to every model ($m_i$) on a 10\% random split of the dataset. The best-performing prompt for each model is then selected. This system prompt is prefixed to the user prompt, and the model is evaluated on the complete dataset.
 
 \paragraph{Few-Shot Prompting}
 \label{few-shot-prompt}
 
-This experiment utilizes \ac{ICL}~\cite{brownLanguageModelsAre2020}, i.e., $n$-few-shot prompting, to improve model performance. Few-shot prompting involves including a small number of examples within the prompt to guide the model's response~\cite{brownLanguageModelsAre2020}. For chat-based models, examples are predominantly provided in the form of a chat history ($H = (u_1, a_1), (u_2, a_2), \ldots, (u_n, a_n), (u_p, a_p)$)~\cite{HowUseFew}, where each example consists of a user prompt ($u_i$) and the corresponding answer ($a_i$). The user query ($u_p$) is inserted as the last item in $H$. This $H$ is then given to the model as input.
+This experiment utilizes \ac{ICL}~\cite{brownLanguageModelsAre2020}, i.e., $n$-few-shot prompting, to improve model performance. Few-shot prompting involves presenting a constrained set of examples within the prompt to aid \acl{ICL} and guide the model's response generation~\cite{brownLanguageModelsAre2020}. For chat-based models, examples are predominantly provided in a conversational form, i.e., a chat history ($H = ((u_1, a_1), (u_2, a_2), \ldots, (u_n, a_n), u_p)$)~\cite{HowUseFew}, where each example consists of a user prompt ($u_i$) and the corresponding answer ($a_i$). The user query ($u_p$) is inserted as the last item in $H$. This $H$ is then given to the model as input.
 
 To reduce bias, such as the model favoring a particular answer choice due to its frequency in $H$, examples are randomly selected while maintaining diversity in answer labels where possible. The optimal number of examples ($n_i$) for each model ($m_i$) is determined by testing $n \in [1, 8]$ on a random 10\% subset of the data, as running all values on the full dataset is too costly and time-intensive. The results of this initial experiment guide the selection of a unique $n_i$ for each model, and each model is prompted with its respective $n_i$ on the full dataset.
 
 \paragraph{Few-Shot with Prompt Engineering.}
 This experiment combines \nameref{zero-shot-prompt-engineering} and \nameref{few-shot-prompt}. As in the \nameref{few-shot-prompt} experiment, examples are presented in a conversational format, integrating both user queries and correct responses before the user query, with the only change being the use of the best-performing system prompt ($s_i$) obtained in \nameref{zero-shot-prompt-engineering}. Each model ($m_i$) is prompted with the optimal number of examples ($n_i$) and the best system prompt ($s_i$) obtained from the zero-shot experiments.
 
-\subsection{Evaluation and Results}
+\subsection{Results}
 
 \subsubsection{Zero-Shot Baseline}
 This experiment presents the baseline evaluation results, assessing model performance in a zero-shot setting without any prompt optimization or task-specific tuning. This initial experiment establishes how well the models perform naturally without any additional instructions. The results are depicted in \Cref{tab:baseline-zero-shot-evaluation}.
