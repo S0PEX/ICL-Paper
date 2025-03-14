@@ -8,6 +8,7 @@
 
 % Useful packages
 \usepackage{float}
+\usepackage{environ}
 \usepackage{amsmath}
 \usepackage{csquotes}
 \usepackage{graphicx}
@@ -47,6 +48,9 @@
 \newcommand{\thesisauthor}{Artur Komaristych}
 \newcommand{\studentID}{7415421}
 \newcommand{\supervisor}{Prof. Dr. Nils Reiter}
+
+% Hide Tables
+% \RenewEnviron{tabular}[2][\relax]{}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -89,7 +93,15 @@
 \input{content/4_conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                      BIBLIOGRAPHY                      %%
+%%                        APPENDIX                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\appendix
+\section{Appendix}
+\input{content/5_appendix.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                      BIBLIOGRAPHY                       %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \printbibliography

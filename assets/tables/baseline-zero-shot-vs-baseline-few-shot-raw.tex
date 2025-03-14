@@ -1,0 +1,109 @@
+
+    \begin{table}[hbp]
+\caption{Default System Prompt: Zero-Shot vs. Few-Shot (Raw): 'Ori', 'Sem', and 'Con' are 'Original', 'Semantic', and 'Context', respectively. 'Ori \& Sem' means 'Original \& Semantic' while 'Ori \& Sem \& Con' means 'Original \& Semantic \& Context'. 'Overall' is the average of 'Ori', 'Sem', and 'Con'.}
+\label{tab:baseline-zero-shot-vs-baseline-few-shot-raw}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ccccccc}
+\cline{1-7}
+ & \multicolumn{3}{|c|}{Instance-based} & \multicolumn{2}{c|}{Group-based} \\ \cline{1-6}
+\multicolumn{1}{c|}{\textbf{Model}} & \textbf{Original} & \textbf{Semantic} & \multicolumn{1}{c|}{\textbf{Context}} & \textbf{Ori \& Sem} & \multicolumn{1}{c|}{\textbf{O \& S \& C}} & \textbf{Overall} \\ \hline
+\multicolumn{7}{c}{Sentence Puzzle} \\ \hline
+\multicolumn{1}{c|}{\textbf{Random*}} & 25.52 & 24.88 & \multicolumn{1}{c|}{22.81} & 5.58 & \multicolumn{1}{c|}{1.44} & 24.40 \\ \hline
+
+        \multicolumn{1}{c|}{llama3.1:8b-q8-0} & 37.80 (66.83) & 34.93 (59.62) & \multicolumn{1}{c|}{35.41 (67.31)} & 21.53 (51.44) & \multicolumn{1}{c|}{9.09 (38.46)} & 36.04 (64.58) \\
+        
+
+        \multicolumn{1}{c|}{llama3.2:1b-fp16} & 5.26 (23.56) & 7.66 (24.04) & \multicolumn{1}{c|}{6.70 (27.40)} & 4.31 (11.06) & \multicolumn{1}{c|}{3.35 (5.77)} & 6.54 (25.00) \\
+        
+
+        \multicolumn{1}{c|}{llama3.2:3b-fp16} & 14.83 (38.94) & 12.44 (33.65) & \multicolumn{1}{c|}{15.31 (46.15)} & 6.22 (19.23) & \multicolumn{1}{c|}{0.00 (11.54)} & 14.19 (39.58) \\
+        
+
+        \multicolumn{1}{c|}{phi3.5:3.8b-mini-fp16} & 1.91 (0.96) & 1.91 (1.92) & \multicolumn{1}{c|}{3.35 (2.40)} & 1.44 (0.96) & \multicolumn{1}{c|}{0.96 (0.96)} & 2.39 (1.76) \\
+        
+
+        \multicolumn{1}{c|}{phi4:14b-q8-0} & 55.98 (77.40) & 49.28 (\underline{79.33}) & \multicolumn{1}{c|}{46.41 (76.44)} & 42.11 (70.19) & \multicolumn{1}{c|}{24.40 (59.13)} & 50.56 (77.72) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:0.5b-fp16} & 9.09 (19.23) & 11.00 (24.04) & \multicolumn{1}{c|}{11.48 (23.08)} & 3.35 (9.13) & \multicolumn{1}{c|}{0.00 (2.88)} & 10.53 (22.12) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:1.5b-fp16} & 20.10 (48.08) & 23.44 (51.44) & \multicolumn{1}{c|}{22.01 (53.85)} & 14.35 (38.46) & \multicolumn{1}{c|}{5.26 (26.44)} & 21.85 (51.12) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:3b-fp16} & 20.57 (40.38) & 20.57 (41.83) & \multicolumn{1}{c|}{22.01 (41.83)} & 12.92 (28.85) & \multicolumn{1}{c|}{8.13 (16.35)} & 21.05 (41.35) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:7b-q8-0} & 57.89 (66.83) & 53.59 (67.79) & \multicolumn{1}{c|}{61.24 (70.19)} & 46.89 (59.62) & \multicolumn{1}{c|}{33.49 (47.12)} & 57.58 (68.27) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:14b-q8-0} & 42.11 (65.87) & 33.97 (62.98) & \multicolumn{1}{c|}{34.93 (64.90)} & 25.36 (54.33) & \multicolumn{1}{c|}{12.44 (40.87)} & 37.00 (64.58) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:32b-q4-K-M} & 58.85 (76.44) & 44.98 (70.67) & \multicolumn{1}{c|}{43.06 (64.42)} & 39.71 (66.83) & \multicolumn{1}{c|}{21.53 (46.63)} & 48.96 (70.51) \\
+        
+
+        \multicolumn{1}{c|}{gemma2:2b-fp16} & 13.40 (40.38) & 14.35 (38.94) & \multicolumn{1}{c|}{16.27 (36.54)} & 7.18 (30.77) & \multicolumn{1}{c|}{2.87 (15.38)} & 14.67 (38.62) \\
+        
+
+        \multicolumn{1}{c|}{gemma2:9b-q8-0} & \textbf{71.29} (78.37) & \textbf{69.38} (69.71) & \multicolumn{1}{c|}{\textbf{63.64} (69.23)} & \textbf{64.11} (65.38) & \multicolumn{1}{c|}{\textbf{46.89} (52.88)} & \textbf{68.10} (72.44) \\
+        
+
+        \multicolumn{1}{c|}{gemma2:27b-q4-K-M} & 61.72 (\underline{80.77}) & 56.46 (77.88) & \multicolumn{1}{c|}{56.94 (\underline{80.77})} & 44.98 (\underline{73.08}) & \multicolumn{1}{c|}{28.71 (\underline{64.90})} & 58.37 (\underline{79.81}) \\
+        
+
+        \multicolumn{1}{c|}{mistral-nemo:12b-2407-q8-0} & 26.79 (59.13) & 22.97 (59.62) & \multicolumn{1}{c|}{25.36 (57.69)} & 16.27 (45.67) & \multicolumn{1}{c|}{5.74 (31.25)} & 25.04 (58.81) \\
+        
+\hline
+\multicolumn{7}{c}{Word Puzzle} \\ \hline
+\multicolumn{1}{c|}{\textbf{Random*}} & 26.02 & 27.85 & \multicolumn{1}{c|}{22.51} & 7.32 & \multicolumn{1}{c|}{1.83} & 25.34 \\ \hline
+
+        \multicolumn{1}{c|}{llama3.1:8b-q8-0} & 27.44 (48.47) & 22.56 (47.85) & \multicolumn{1}{c|}{32.93 (45.40)} & 12.20 (33.74) & \multicolumn{1}{c|}{6.10 (19.63)} & 27.64 (47.24) \\
+        
+
+        \multicolumn{1}{c|}{llama3.2:1b-fp16} & 1.22 (18.40) & 2.44 (13.50) & \multicolumn{1}{c|}{2.44 (25.15)} & 1.22 (3.68) & \multicolumn{1}{c|}{1.22 (0.00)} & 2.03 (19.02) \\
+        
+
+        \multicolumn{1}{c|}{llama3.2:3b-fp16} & 27.44 (19.63) & 16.46 (19.63) & \multicolumn{1}{c|}{25.00 (23.31)} & 10.98 (10.43) & \multicolumn{1}{c|}{3.66 (1.23)} & 22.97 (20.86) \\
+        
+
+        \multicolumn{1}{c|}{phi3.5:3.8b-mini-fp16} & 1.22 (32.52) & 1.83 (26.99) & \multicolumn{1}{c|}{1.22 (28.22)} & 1.22 (20.25) & \multicolumn{1}{c|}{0.61 (9.20)} & 1.42 (29.24) \\
+        
+
+        \multicolumn{1}{c|}{phi4:14b-q8-0} & 42.68 (\underline{71.78}) & 36.59 (\underline{67.48}) & \multicolumn{1}{c|}{32.93 (\underline{69.33})} & 28.66 (\underline{60.12}) & \multicolumn{1}{c|}{16.46 (\underline{46.63})} & 37.40 (\underline{69.53}) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:0.5b-fp16} & 10.98 (33.13) & 7.93 (29.45) & \multicolumn{1}{c|}{15.85 (37.42)} & 5.49 (17.18) & \multicolumn{1}{c|}{1.22 (8.59)} & 11.59 (33.33) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:1.5b-fp16} & 12.20 (42.94) & 7.93 (36.81) & \multicolumn{1}{c|}{21.34 (50.31)} & 4.27 (25.77) & \multicolumn{1}{c|}{2.44 (15.95)} & 13.82 (43.35) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:3b-fp16} & 19.51 (36.20) & 10.98 (28.22) & \multicolumn{1}{c|}{20.12 (38.04)} & 9.15 (22.70) & \multicolumn{1}{c|}{3.66 (11.04)} & 16.87 (34.15) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:7b-q8-0} & 24.39 (55.83) & 15.85 (46.63) & \multicolumn{1}{c|}{18.90 (43.56)} & 12.80 (38.65) & \multicolumn{1}{c|}{4.88 (18.40)} & 19.72 (48.67) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:14b-q8-0} & 18.90 (44.17) & 9.15 (39.26) & \multicolumn{1}{c|}{13.41 (39.88)} & 7.32 (30.06) & \multicolumn{1}{c|}{3.05 (17.79)} & 13.82 (41.10) \\
+        
+
+        \multicolumn{1}{c|}{qwen2.5:32b-q4-K-M} & 28.66 (60.74) & 20.12 (55.83) & \multicolumn{1}{c|}{24.39 (47.85)} & 17.07 (49.08) & \multicolumn{1}{c|}{7.32 (30.67)} & 24.39 (54.81) \\
+        
+
+        \multicolumn{1}{c|}{gemma2:2b-fp16} & 11.59 (44.17) & 8.54 (37.42) & \multicolumn{1}{c|}{15.24 (44.79)} & 4.88 (27.61) & \multicolumn{1}{c|}{1.83 (16.56)} & 11.79 (42.13) \\
+        
+
+        \multicolumn{1}{c|}{gemma2:9b-q8-0} & \textbf{54.88} (63.80) & \textbf{42.68} (62.58) & \multicolumn{1}{c|}{\textbf{44.51} (63.80)} & \textbf{35.98} (52.15) & \multicolumn{1}{c|}{\textbf{22.56} (38.65)} & \textbf{47.36} (63.39) \\
+        
+
+        \multicolumn{1}{c|}{gemma2:27b-q4-K-M} & 46.34 (68.71) & 40.24 (63.80) & \multicolumn{1}{c|}{43.90 (61.96)} & 29.88 (55.21) & \multicolumn{1}{c|}{18.29 (42.33)} & 43.50 (64.83) \\
+        
+
+        \multicolumn{1}{c|}{mistral-nemo:12b-2407-q8-0} & 9.15 (44.17) & 10.37 (40.49) & \multicolumn{1}{c|}{13.41 (48.47)} & 5.49 (29.45) & \multicolumn{1}{c|}{0.61 (19.63)} & 10.98 (44.38) \\
+        
+\\ \hline
+\end{tabular}%
+}
+\end{table}
+    
