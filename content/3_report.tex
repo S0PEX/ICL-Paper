@@ -22,7 +22,7 @@ Model performance is assessed using three accuracy metrics from \textcite{jiangB
 Metrics are reported for both \textit{raw} and \textit{processed} model responses. A \textit{raw response} refers to the model's direct output, where the answer is checked for an exact match with the expected choice or text. A \textit{processed response} involves applying advanced techniques to extract the answer from potentially verbose text, i.e., in cases where the model response includes additional text or prefixes before the answer itself, such as \textit{"Based on the evaluation of all choices, the best choice is (A)"}.
 
 \paragraph{Prompt}
-For all experiments, a modified version (shown in \Cref{fig:prompt-template}) of the original prompt from \textcite{jiangBRAINTEASERLateralThinking2023} is used. The placeholders, i.e.,\{question\}, enclosed in curly braces, are replaced with specific content, e.g., \textit{"What part of London is in France?"}, during the experiments.
+For all experiments, a modified version (cf.~\Cref{fig:prompt-template}) of the original prompt from \textcite{jiangBRAINTEASERLateralThinking2023} is used. The placeholders, i.e.,\{question\}, enclosed in curly braces, are replaced with specific content, e.g., \textit{"What part of London is in France?"}, during the experiments.
 
 \begin{figure}[htb]
   \centering
@@ -64,14 +64,14 @@ Building on the \nameref{sec:zero-shot-prompt} experiment, 12 different system p
 \paragraph{Few-Shot Prompting}
 \label{sec:few-shot-prompt}
 
-This experiment utilizes \acf{ICL}~\cite{brownLanguageModelsAre2020}, i.e., $n$-few-shot prompting, to improve model performance. Few-shot prompting involves presenting a constrained set of examples within the prompt to aid \acl{ICL} and guide the model's response generation~\cite{brownLanguageModelsAre2020}. For chat-based models, examples are primarily provided in a conversational form, i.e., a chat history ($H = ((u_1, a_1), (u_2, a_2), \ldots, (u_n, a_n), u_p)$)~\cite{HowUseFew}, where each example ($e_i = (u_i, a_i)$) consists of a user prompt ($u_i$) and the corresponding answer ($a_i$). The final user query of interest ($u_p$) is inserted as the last item in $H$. This $H$ is then supplied to the model as input.
+This experiment utilizes \acf{ICL}~\cite{brownLanguageModelsAre2020}, i.e., $n$-few-shot prompting, to improve model performance. Few-shot prompting involves presenting a constrained set of examples within the prompt to aid \acl{ICL} and guide the model's response generation~\cite{brownLanguageModelsAre2020}. For chat-based models, examples are primarily provided in a conversational form, i.e., a chat history $H = ((u_1, a_1), (u_2, a_2), \ldots, (u_n, a_n), u_p)$~\cite{HowUseFew}, where each example $e_i = (u_i, a_i)$ consists of a user prompt ($u_i$) and the corresponding answer ($a_i$). The final user query of interest ($u_p$) is inserted as the last item in $H$. This $H$ is then supplied to the model as input.
 
 To reduce bias, such as the model favoring a particular answer choice due to its frequency in $H$, examples are randomly selected while maintaining diversity in answer labels where possible. The optimal number of examples ($n_i$) for each model ($m_i$) is determined by testing $n \in [1, 8]$ on a random 10\% subset of the data, as running all values on the full dataset would be too costly and time-intensive. The results of this initial experiment then guides the selection of an optimal $n_i$ for each model, and each model is prompted with its respective $n_i$ on the full dataset.
 
 \paragraph{Few-Shot with Prompt Engineering.}
 \label{sec:few-shot-optimized}
 
-This experiment combines \nameref{sec:zero-shot-prompt-engineering} and \nameref{sec:few-shot-prompt}. As in the \nameref{sec:few-shot-prompt} experiment, examples are presented in a conversational format, integrating both user queries and correct responses before the user query. The only change is the use of the best-performing system prompt ($s_i$) obtained in \nameref{sec:zero-shot-prompt-engineering}. Each model ($m_i$) is prompted with the optimal number of examples ($n_i$) and the best system prompt ($s_i$) obtained from the zero-shot experiments.
+This experiment combines \nameref{sec:zero-shot-prompt-engineering} and \nameref{sec:few-shot-prompt}. As in the \nameref{sec:few-shot-prompt} experiment, examples are presented in a conversational format, integrating both user queries and correct responses before the final user query. The only change is the use of the best-performing system prompt ($s_i$) obtained in \nameref{sec:zero-shot-prompt-engineering}. Each model ($m_i$) is prompted with the optimal number of examples ($n_i$) and the best system prompt ($s_i$) obtained from the zero-shot experiments.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                        Results                          %%
@@ -146,7 +146,7 @@ Considering these factors, it is reasonable to conclude that the \acp{oLLM} eval
   \label{fig:interference}
 \end{figure}
 
-The interference speeds across models (cf.~\Cref{fig:interference}) show little variation, especially when considering the \ac{VRAM} requirements. The LLaMA family is the fastest, with nearly no difference in processing speed between SP and WP conditions or across different parameter sizes. In contrast, Phi3.5:3.8B is the slowest (~3.43s), taking significantly more time despite its relatively small size. Other models generally show consistent scaling, with larger models taking longer to process.
+The interference speeds across models (cf.~\Cref{fig:interference}) show little variation, especially when considering the \ac{VRAM} requirements. The LLaMA family is the fastest, with nearly no difference in processing speed between SP and WP conditions or across different parameter sizes. In contrast, Phi3.5:3.8B is the slowest with 3.43s, taking significantly more time despite its relatively small size. Other models generally show consistent scaling, with larger models taking longer to process.
 
 Interestingly, QWEN2.5:3B is notably slow for no apparent reason, as its 7B variant only takes around 1 second. Additionally, most models require more time on WP than SP, which is unexpected since WP contains shorter text instances compared to SP. This could be due to the increased reasoning required by WP, due to more complex word meanings, potentially distracting the models.
 
